@@ -1,0 +1,46 @@
+It's my cleo for samp rp.
+
+
+Source:
+{$CLEO .cs}
+
+
+0000: NOP 
+thread "lh" 
+wait 2000 
+chatmsg "Fake PayDay çàãðóæåí áëÿòü" 16711680 
+0B34: samp register_client_command "fakepd" to_label @lh_272 
+alloc 2@ 70 
+alloc 3@ 70 
+alloc 4@ 70 
+alloc 5@ 70 
+alloc 6@ 70 
+0AF4: 2@ = read_string_from_ini_file "CLEO\fake.ini" section "fake" key "time" 
+0AF4: 3@ = read_string_from_ini_file "CLEO\fake.ini" section "fake" key "bank" 
+0AF4: 4@ = read_string_from_ini_file "CLEO\fake.ini" section "fake" key "zp" 
+0AF4: 5@ = read_string_from_ini_file "CLEO\fake.ini" section "fake" key "nalog" 
+0AF4: 6@ = read_string_from_ini_file "CLEO\fake.ini" section "fake" key "telefon" 
+
+:lh_261
+wait 0 
+jump @lh_261 
+
+:lh_272
+   SAMP.IsCommandTyped(0@)
+0AF4: 2@ = read_string_from_ini_file "CLEO\fake.ini" section "fake" key "time" 
+0AF4: 3@ = read_string_from_ini_file "CLEO\fake.ini" section "fake" key "bank" 
+0AF4: 4@ = read_string_from_ini_file "CLEO\fake.ini" section "fake" key "zp" 
+0AF4: 5@ = read_string_from_ini_file "CLEO\fake.ini" section "fake" key "nalog" 
+0AF4: 6@ = read_string_from_ini_file "CLEO\fake.ini" section "fake" key "telefon" 
+chatmsg "{FFFFFF}Ñåé÷àñ âðåìåíè: %s ÷àñîâ" -1 2@ 
+chatmsg "{AFAFAF}--------===[ ÊËÈÅÍÒ ÁÀÍÊÀ SA ]===--------" -1 
+chatmsg "{FF8C37}***** Íàëîã ãîñóäàðñòâó: %s âèðò *****" -1 5@ 
+chatmsg "{FF8C37} Ñ÷¸ò çà òåëåôîí: %s âèðò" -1 6@ 
+chatmsg " " -1 
+chatmsg "{FFFFFF} Çàðïëàòà: %s âèðò" -1 4@ 
+chatmsg "{FFFFFF} Òåêóùèé áàëàíñ: %s âèðò" -1 3@ 
+chatmsg "{AFAFAF}================================" -1 
+jump @lh_776 
+
+:lh_776
+SAMP.CmdRet
